@@ -165,14 +165,6 @@ export const GUIDE_PATHS: GuidePath[] = [
         skippable: false,
       },
       {
-        id: "fund-wallet",
-        title: "Fund your wallet with USDC",
-        description: "Requests settle per-call in USDC — EVM or Solana. Have a small balance ready for testing.",
-        hint: "Already funded? Skip ahead.",
-        cta: { label: "See supported wallets", href: `${SITE_URLS.docs}/payments` },
-        skippable: true,
-      },
-      {
         id: "first-request",
         title: "Make your first request",
         description: "Send a request from your app and confirm you get a response with a payment receipt back.",
