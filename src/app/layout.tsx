@@ -12,7 +12,7 @@ const robotoMono = Roboto_Mono({
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://guide.telegraphprotocol.com";
 const title = "Telegraph Guide";
 const description =
-  "Your step-by-step guide to Telegraph Protocol — ask, build, mine, or join the hackathon. Pick a path, we'll walk you through it.";
+  "The best answers, used to trade and earn. Your step-by-step guide to Telegraph Protocol — ask, build, mine, or join the hackathon. Pick a path, we'll walk you through it.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),

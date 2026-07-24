@@ -14,7 +14,7 @@ export function Hero() {
         <span className="relative inline-flex size-1.5 rounded-full bg-success">
           <span className="absolute inset-0 rounded-full bg-success glow-pulse" />
         </span>
-        Telegraph Protocol is live
+        The best answers, used to trade and earn
       </motion.div>
       <motion.h1
         initial={{ opacity: 0, y: 14 }}
