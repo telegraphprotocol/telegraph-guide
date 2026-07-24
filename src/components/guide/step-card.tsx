@@ -92,15 +92,17 @@ export function StepCard({
                 <p className="mt-1.5 text-xs text-muted-foreground-2">{step.hint}</p>
               )}
               <div className="mt-4 flex flex-wrap items-center gap-2">
-                <a
-                  href={step.cta.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={onComplete}
-                  className={cn(buttonVariants({ size: "sm" }))}
-                >
-                  {step.cta.label}
-                </a>
+                {step.cta && (
+                  <a
+                    href={step.cta.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={onComplete}
+                    className={cn(buttonVariants({ size: "sm" }))}
+                  >
+                    {step.cta.label}
+                  </a>
+                )}
                 <Button variant="outline" size="sm" onClick={onComplete} className="gap-1.5">
                   <Check className="size-3.5" />
                   Mark done

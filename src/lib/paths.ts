@@ -7,7 +7,7 @@ export type Step = {
   title: string;
   description: string;
   hint?: string;
-  cta: { label: string; href: string };
+  cta?: { label: string; href: string };
   skippable: boolean;
 };
 
@@ -34,7 +34,7 @@ export const GUIDE_PATHS: GuidePath[] = [
         title: "See what a miner does",
         description:
           "A miner is a model or data feed competing to answer requests on the network. Skim the miner registry overview so you know what you're registering before you start.",
-        cta: { label: "Open the docs", href: `${SITE_URLS.docs}/miners` },
+        cta: { label: "Open the docs", href: `${SITE_URLS.docs}/docs/miners/miner-overview` },
         skippable: true,
       },
       {
@@ -138,7 +138,6 @@ export const GUIDE_PATHS: GuidePath[] = [
         id: "check-receipt",
         title: "Check the receipt",
         description: "Every answer comes back with a cryptographic receipt proving what was paid for and delivered.",
-        cta: { label: "Learn about receipts", href: `${SITE_URLS.docs}/receipts` },
         skippable: true,
       },
     ],
@@ -154,7 +153,7 @@ export const GUIDE_PATHS: GuidePath[] = [
         id: "read-api-docs",
         title: "Read the API docs",
         description: "Understand the request/response shape and how x402 payment settlement works before writing code.",
-        cta: { label: "Open API docs", href: `${SITE_URLS.docs}/api` },
+        cta: { label: "Open API docs", href: `${SITE_URLS.docs}/docs/using/x402-inference` },
         skippable: true,
       },
       {

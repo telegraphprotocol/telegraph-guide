@@ -1,24 +1,28 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
+import { syncOverallProgressCookie } from "@/lib/progress-sync";
 
 type StepState = "done" | "skipped";
 type PathProgress = Record<string, StepState>;
 
-const storageKey = (pathSlug: string) => `telegraph-guide-progress:${pathSlug}`;
+export const progressStorageKey = (pathSlug: string) => `telegraph-guide-progress:${pathSlug}`;
+const storageKey = progressStorageKey;
 
 export function useGuideProgress(pathSlug: string) {
   const [progress, setProgress] = useState<PathProgress>({});
   const [hydrated, setHydrated] = useState(false);
 
   useEffect(() => {
+    let initial: PathProgress = {};
     try {
       const raw = localStorage.getItem(storageKey(pathSlug));
-      // eslint-disable-next-line react-hooks/set-state-in-effect -- one-time hydration from localStorage, not derivable at render time on the server
-      setProgress(raw ? JSON.parse(raw) : {});
+      initial = raw ? JSON.parse(raw) : {};
     } catch {
-      setProgress({});
+      initial = {};
     }
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- one-time hydration from localStorage, not derivable at render time on the server
+    setProgress(initial);
     setHydrated(true);
   }, [pathSlug]);
 
@@ -27,6 +31,7 @@ export function useGuideProgress(pathSlug: string) {
       setProgress((prev) => {
         const next = { ...prev, [stepId]: state };
         localStorage.setItem(storageKey(pathSlug), JSON.stringify(next));
+        syncOverallProgressCookie();
         return next;
       });
     },
@@ -35,6 +40,7 @@ export function useGuideProgress(pathSlug: string) {
 
   const reset = useCallback(() => {
     localStorage.removeItem(storageKey(pathSlug));
+    syncOverallProgressCookie();
     setProgress({});
   }, [pathSlug]);
 
