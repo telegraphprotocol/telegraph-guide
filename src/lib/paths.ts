@@ -25,15 +25,15 @@ export const GUIDE_PATHS: GuidePath[] = [
     slug: "miner",
     accent: "warning",
     label: "Become a Miner",
-    tagline: "Supply intelligence, earn USDC per win",
+    tagline: "Supply intelligence, earn from paid demand",
     description:
-      "Plug your model or data feed into the Telegraph network with one config file, and get paid every time it's picked.",
+      "Register a model, API, dataset, algorithm, search system or tool against an Intent. Miners compete on measured performance and earn from fulfilled paid Consumer demand - not from protocol emissions.",
     steps: [
       {
         id: "what-is-mining",
-        title: "See what a miner does",
+        title: "See what a Miner does",
         description:
-          "A miner is a model or data feed competing to answer requests on the network. Skim the miner registry overview so you know what you're registering before you start.",
+          "A Miner is a model, API, dataset or tool competing on measured performance for an Intent. Skim the miner registry overview so you know what you're registering before you start.",
         cta: { label: "Open the docs", href: `${SITE_URLS.docs}/docs/miners/miner-overview` },
         skippable: true,
       },
@@ -51,7 +51,7 @@ export const GUIDE_PATHS: GuidePath[] = [
         title: "Create your YAML config",
         description:
           "Use the guided wizard to describe your model or feed — endpoints, pricing, supported intents — or import a YAML you already have.",
-        cta: { label: "Start the wizard", href: SITE_URLS.integrate },
+        cta: { label: "Connect intelligence", href: `${SITE_URLS.integrate}/register?mode=hash` },
         skippable: false,
       },
       {
@@ -59,7 +59,67 @@ export const GUIDE_PATHS: GuidePath[] = [
         title: "Register on-chain",
         description:
           "Pin your config to IPFS, connect your wallet, set a floor price, and submit the registration transaction.",
-        cta: { label: "Register now", href: `${SITE_URLS.integrate}` },
+        cta: { label: "Connect intelligence", href: `${SITE_URLS.integrate}/register?mode=hash` },
+        skippable: false,
+      },
+    ],
+  },
+  {
+    slug: "evaluator",
+    accent: "info",
+    label: "Build an Evaluator",
+    tagline: "Improve how intelligence is measured",
+    description:
+      "Evaluators define how Miner performance is measured for an Intent. Competing Evaluators can challenge the current Canonical Evaluator, and a stronger method can replace it.",
+    steps: [
+      {
+        id: "what-is-an-evaluator",
+        title: "See what an Evaluator does",
+        description:
+          "An Evaluator is the method that scores Miner performance for an Intent. Read the docs so you know how Canonical Evaluators are chosen and replaced.",
+        cta: { label: "Open the docs", href: SITE_URLS.docs },
+        skippable: true,
+      },
+      {
+        id: "build-evaluator",
+        title: "Build your Evaluator",
+        description:
+          "Write your evaluation method as a WASM module so every Validator computes the same score deterministically.",
+        cta: { label: "Build an Evaluator", href: `${SITE_URLS.integrate}/wasm` },
+        skippable: false,
+      },
+      {
+        id: "challenge-canonical",
+        title: "Challenge the Canonical Evaluator",
+        description:
+          "Submit your Evaluator for an Intent. If it measures performance better than the current standard, it can replace it. Eligible Canonical Evaluators participate in the protocol's Evaluator reward mechanism.",
+        cta: { label: "Build an Evaluator", href: `${SITE_URLS.integrate}/wasm` },
+        skippable: false,
+      },
+    ],
+  },
+  {
+    slug: "validator",
+    accent: "success",
+    label: "Run a Validator",
+    tagline: "Secure the network",
+    description:
+      "Validators independently verify protocol execution, reproduce the required evaluation work and participate in finalizing Telegraph state.",
+    steps: [
+      {
+        id: "what-is-a-validator",
+        title: "See what a Validator does",
+        description:
+          "Validators verify execution, reproduce evaluation work and finalize rankings. Read the docs before you commit infrastructure.",
+        cta: { label: "Open the docs", href: SITE_URLS.docs },
+        skippable: true,
+      },
+      {
+        id: "reserve-slot",
+        title: "Reserve a validator slot",
+        description:
+          "Validators receive the fixed Validator share of MACHINA emissions for protocol work, subject to the protocol rules. Reserve your slot to get started.",
+        cta: { label: "Reserve a validator slot", href: `${SITE_URLS.node}/` },
         skippable: false,
       },
     ],
@@ -145,9 +205,10 @@ export const GUIDE_PATHS: GuidePath[] = [
   {
     slug: "build",
     accent: "success",
-    label: "Build with Alexandria",
-    tagline: "One API call reaches every model on the network",
-    description: "Wire your app into Telegraph Protocol — pay per request, no vendor lock-in.",
+    label: "Build with Telegraph",
+    tagline: "Bring demand to ranked intelligence",
+    description:
+      "Connect an application, agent or machine workflow to ranked intelligence through Telegraph. Consumer demand is what creates Miner revenue and drives the network economy.",
     steps: [
       {
         id: "read-api-docs",
@@ -157,17 +218,16 @@ export const GUIDE_PATHS: GuidePath[] = [
         skippable: true,
       },
       {
-        id: "open-build-tab",
-        title: "Open the Build door",
-        description: "Alexandria's Build tab is where developers get access — one call reaches every model and feed.",
-        cta: { label: "Open Build with Alexandria", href: `${SITE_URLS.alexandria}/build` },
+        id: "start-building",
+        title: "Start building",
+        description: "Plug in once and get the best-ranked intelligence for the job, for your agent, app or integration.",
+        cta: { label: "Build with Telegraph", href: `${SITE_URLS.integrate}/integrate` },
         skippable: false,
       },
       {
         id: "first-request",
         title: "Make your first request",
         description: "Send a request from your app and confirm you get a response with a payment receipt back.",
-        cta: { label: "Back to Alexandria", href: SITE_URLS.alexandria },
         skippable: false,
       },
     ],

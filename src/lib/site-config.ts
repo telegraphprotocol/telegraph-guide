@@ -2,6 +2,7 @@ export const SITE_URLS = {
   alexandria: "https://alexandria.telegraphprotocol.com",
   explorer: "https://explorer.telegraphprotocol.com",
   integrate: "https://integrate.telegraphprotocol.com",
+  node: "https://node.telegraphprotocol.com",
   hackathon: "https://hackathon.telegraphprotocol.com",
   docs: "https://docs.telegraphprotocol.com",
   useCases: "https://alexandria.telegraphprotocol.com/apps",
